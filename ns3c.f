@@ -2400,19 +2400,18 @@ C
 
       NGL     = NPROCE(1+N,IPRO)     ! Global block number
       KSTATE  = JSTATE(NGL,1)        ! For single phase
-      LSTATE(1:3) = JSTATE(NGL,1:3)  ! For resike routines
-c      if(ngl == 3 .and. mulphl) kstate = jstate(ngl,2) ! viritys testikeisiin
+      LSTATE(3) = JSTATE(N1,3)  ! For resike routines
 
-      FRSPRE  = BLKS(NGL)%FRSPRE
-      FRSDEN  = BLKS(NGL)%FRSDEN
-      FRSTEM  = BLKS(NGL)%FRSTEM
-      FRSSIE  = BLKS(NGL)%FRSSIE
-      ARTSSP  = BLKS(NGL)%ARTSSP
-      FRSSSP  = BLKS(NGL)%FRSSSP
-      FRSVEL  = BLKS(NGL)%FRSVEL
-      TLOLIM  = BLKS(NGL)%TLOLIM
-      TUPLIM  = BLKS(NGL)%TUPLIM
-      IPRESC  = BLKS(NGL)%IPRESC
+      FRSPRE  = FRSPRE
+      FRSDEN  = FRSDEN
+      FRSTEM  = FRSTEM
+      FRSSIE  = FRSSIE
+      ARTSSP  = ARTSSP
+      FRSSSP  = FRSSSP
+      FRSVEL  = FRSVEL
+      TLOLIM  = TLOLIM
+      TUPLIM  = TUPLIM
+      IPRESC  = IPRESC
 
       CFM     = CFL
       IF(M >= 2) CFM = CFLL
@@ -2428,20 +2427,20 @@ c      if(ngl == 3 .and. mulphl) kstate = jstate(ngl,2) ! viritys testikeisiin
       IR2     = IR(M,N)
       IQ2     = IQ(M,N)
 
-      IRR2    = 1
-      ISS     = 1
-      IGL     = 1
-      IQL     = 1
-      IRL     = 1
-      IGC     = 1
-      ICH     = 1
-      IMCH    = 1
-      ICQ     = 1
-      IE2     = 1
-      IM2     = 1
-      IPC2    = 1
-      IFR2    = 1
-      IT2     = 1
+      IRR2    = 0
+      ISS     = 0
+      IGL     = 0
+      IQL     = 0
+      IRL     = 0
+      IGC     = 0
+      ICH     = 0
+      IMCH    = 0
+      ICQ     = 0
+      IE2     = 0
+      IM2     = 0
+      IPC2    = 0
+      IFR2    = 0
+      IT2     = 0
 
       IF (ITURB >= 21)IRR2 = IQ2
       IF (STRESL)     ISS  = IG2
