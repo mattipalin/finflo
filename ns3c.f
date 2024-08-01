@@ -2376,12 +2376,12 @@ C
 
       IF(M == 1) THEN
       DO 2000 N1 = IS1,IS1+NPATCH(N)-1
-             CXB(N1)   = 0.
-             CYB(N1)   = 0.
-             CZB(N1)   = 0.
-             DXB(N1)   = 0.
-             DYB(N1)   = 0.
-             DZB(N1)   = 0.
+             CXB(N)   = 0.
+             CYB(N)   = 0.
+             CZB(N)   = 0.
+             DXB(N)   = 0.
+             DYB(N)   = 0.
+             DZB(N)   = 0.
              CMXB(N1)  = 0.
              CMYB(N1)  = 0.
              CMZB(N1)  = 0.
