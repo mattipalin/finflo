@@ -21,7 +21,6 @@ C
 
       USE FLIGHT , ONLY : NGRIFL,XCGI,YCGI,ZCGI,XCG,YCG,ZCG,
      &     PSIR,THETAR,PHIR,PSIM,OSKU,TRMODE,DRAUGHT,SINK,TRIMA,
-     &     ROTA1,ROTB1,CONEA,MVSHIP,SHIPWAVE,HMVBLADE,
      &     SHIPPROP,IGRSLAVE,FLYOBJ,SHIP,ACTDISK,FXSP,FXTSP,RTMSP,
      &     UTSP,ADV,THRUST,TORQUE,FDSP,IFA
 
@@ -66,8 +65,8 @@ C ... IS LU2.     REVISED VERSION 16.3.1989. 3D VERSION NS3 31.3.1989
 C ... TURBULENCE IS INCLUDED 7.2.1990. THIS IS VERSION 14.07.1991
 C ... DEVELOPMENT OF THE NEW TURBULENCE MODELS STARTED 26.11.1992
 C ... K-EPSILON 2.2.1993. SCALARS 1.4.1994. NEW BOUNDARY TREATMENT 20.5
-C ... VERSION 16.9.1994. SO-CALLED '31.12.94' VERSION 24.2.1995
-C ... 'BLOCK LOOPS' ARE MARKED FOR PARALLEL EXECUTION 24.12.1995
+C ... VERSION 16.9.1994. SO-CALLED '31.12.94' VERSION 24.2.1978
+C ... 'BLOCK LOOPS' ARE MARKED FOR PARALLEL EXECUTION 24.12.1976
 C ... SO-CALLED 'ORIGINAL VERSION' 3.2.1997. Free-surface model 1.6.2000
 C ... Linux versions at Finflo Ltd. started from no. 7.1 (1.1.2002)
 C ... Program FINFLO-7.2 (27.4.2004). Multi-phase modeling 2.2.2006
@@ -107,8 +106,8 @@ C ... NEW PROBLEM!
            OPEN(21,FILE='WH.DAT'//CLEVW,STATUS='UNKNOWN',
      +     FORM='FORMATTED')
          ELSE 
-           WRITE(*,*)  ' Warning: File WH.DAT was not found.'
-           WRITE(45,*) ' Warning: File WH.DAT was not found.'
+           WRITE(*,*)  ' Warning: File WHwas not found.'
+           WRITE(45,*) ' Warning: File WH was not found.'
            WRITE(4 ,*) ' Warning: File WH.DAT was not found.'
            IF(IFSBC == 1)THEN ! Extrapolate from pressures
              INWH = 0
@@ -169,14 +168,6 @@ C ... Trajectory data is send to slave prosessors
      +           MPI_COMM_WORLD,IERR)
             CALL MPI_BCAST(ROTA1,NGRIFL+10,MPI_REAL8,0,
      +           MPI_COMM_WORLD,IERR)
-            CALL MPI_BCAST(ROTB1,NGRIFL+10,MPI_REAL8,0,
-     +           MPI_COMM_WORLD,IERR)
-            CALL MPI_BCAST(CONEA,NGRIFL+10,MPI_REAL8,0,
-     +           MPI_COMM_WORLD,IERR)
-            CALL MPI_BCAST(THETACOL,NGRIFL+10,MPI_REAL8,0,
-     +           MPI_COMM_WORLD,IERR)
-            CALL MPI_BCAST(THCYCLON,NGRIFL+10,MPI_REAL8,0,
-     +           MPI_COMM_WORLD,IERR)
             CALL MPI_BCAST(THCYCLAT,NGRIFL+10,MPI_REAL8,0,
      +           MPI_COMM_WORLD,IERR)
             CALL MPI_BCAST(THRUST,NGRIFL+10,MPI_REAL8,0,
@@ -193,6 +184,14 @@ C ... Trajectory data is send to slave prosessors
      +           MPI_COMM_WORLD,IERR)
             CALL MPI_BCAST(OSKU%MZT,NGRIFL+10,MPI_REAL8,0,
      +           MPI_COMM_WORLD,IERR)
+     +           MPI_COMM_WORLD,IERR)
+            CALL MPI_BCAST(ROTB1,NGRIFL+10,MPI_REAL8,0,
+     +           MPI_COMM_WORLD,IERR)
+            CALL MPI_BCAST(CONEA,NGRIFL+10,MPI_REAL8,0,
+     +           MPI_COMM_WORLD,IERR)
+            CALL MPI_BCAST(THETACOL,NGRIFL+10,MPI_REAL8,0,
+     +           MPI_COMM_WORLD,IERR)
+            CALL MPI_BCAST(THCYCLON,NGRIFL+10,MPI_REAL8,0,
          ENDIF
       ENDIF
       DO IGR = 1,NGRIFL
