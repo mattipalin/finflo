@@ -290,14 +290,14 @@ C ... thermodynamic model specified by ISTATE
 
       INTEGER :: ISTATE,I 
 
-      REAL :: XMASS,HTOT,P,RHO,RHOU,E,RK
-      REAL :: TURBLE,FRSVEL,GAMMA,GM1
+      REAL :: P,RHO,RHOU,E,RK, HTOT, XMASS
       REAL :: UVEL,RHOOLD,ESMA,ESMAOLD
+      REAL :: TURBLE,FRSVEL,GAMMA,GM1
       REAL :: R23,R53,APU1,APU2,APU9
 
       GM1  = GAMMA - 1.
-      R23  = 2./3.
       R53  = 5./3.
+      R23  = 2./3.
       APU9 = 0.
 
 C ... Initial guesses for density and specific internal energy
