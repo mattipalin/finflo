@@ -23,8 +23,8 @@
        END MODULE TRSINK
        
        MODULE GLIM
-       INTEGER :: nlim,iblim(10),itlim(10),jlim(10),limf(10),
-     $             ijklim(8,10),ia,ib
+       INTEGER :: nlim,iblim(15),itlim(15),jlim(15),limf(15),
+     $             ijklim(8,15),ia,ib
        REAL :: xlim(0:200,0:200,10),ylim(0:200,0:200,10),
      $          zlim(0:200,0:200,10),dlim(0:200)
        END MODULE GLIM
